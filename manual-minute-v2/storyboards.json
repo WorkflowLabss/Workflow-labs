@@ -1,0 +1,299 @@
+[
+  {
+    "key": "model-y-screen-clean",
+    "vehicle": "Tesla Model Y",
+    "model_years": "2020\u20132024",
+    "market": "North America",
+    "equipment": "Touchscreen menus depend on installed software",
+    "source_section": "Cleaning > Touchscreen",
+    "source_url": "https://www.tesla.com/ownersmanual/2020_2024_modely/en_us/GUID-65384C1F-86F2-44E8-A8BC-8A12E7E00A40.html",
+    "manual_edition": "2020\u20132024 Model Y online manual; 2026.32 software family",
+    "title": "2020\u20132024 Model Y: Clean the Screen Without Accidental Taps",
+    "source_reviewed_on": "2026-10-20",
+    "review_due": "2026-11-19",
+    "review_status": "source-reviewed-draft",
+    "risk_class": "stationary-convenience",
+    "hashtags": "#Shorts #CarTips #OwnersManual #ManualMinute",
+    "description": "Screen Clean Mode illustrated in a simplified original menu. Park first. Tesla specifies a soft lint-free display cloth and cautions against cleaners, wet wipes and static-charged cloths.",
+    "scenes": [
+      {
+        "eyebrow": "The overlooked setting",
+        "headline": "Wipe the screen.|Skip the mis-taps.",
+        "mode": "controls",
+        "voice": "Wiping your Tesla screen and opening random menus? There is a setting for that."
+      },
+      {
+        "eyebrow": "01 / While parked",
+        "headline": "Start with|Controls.",
+        "mode": "controls",
+        "voice": "While parked, open Controls."
+      },
+      {
+        "eyebrow": "02 / Find the setting",
+        "headline": "Display.|Screen Clean Mode.",
+        "mode": "mode",
+        "voice": "Choose Display, then Screen Clean Mode."
+      },
+      {
+        "eyebrow": "03 / Wipe safely",
+        "headline": "Dark screen.|No accidental taps.",
+        "mode": "clean",
+        "voice": "The screen darkens, and wiping will not change your settings. Use a soft, lint-free display cloth. Skip cleaners, wet wipes, and statically charged cloths."
+      },
+      {
+        "eyebrow": "04 / Finish",
+        "headline": "Press. Hold.|You\u2019re back.",
+        "mode": "exit",
+        "voice": "Finished? Press and hold the exit control. Menus can vary with software. The manufacturer source is below."
+      }
+    ],
+    "visual": "screen",
+    "label": "TESLA MODEL Y  /  2020\u20132024  /  NORTH AMERICA"
+  },
+  {
+    "key": "model-y-usb",
+    "vehicle": "Tesla Model Y",
+    "model_years": "2020\u20132024",
+    "market": "North America",
+    "equipment": "USB functionality depends on build date and installed hardware",
+    "source_section": "Interior Electronics > USB Ports",
+    "source_url": "https://www.tesla.com/ownersmanual/2020_2024_modely/en_us/GUID-7F07443D-5107-4A5A-A9F1-E02FF14E4A9A.html",
+    "manual_edition": "2020\u20132024 Model Y online manual; 2026.32 software family",
+    "title": "2020\u20132024 Model Y: Why That USB Port Only Charges",
+    "source_reviewed_on": "2026-10-20",
+    "review_due": "2026-11-19",
+    "review_status": "source-reviewed-draft",
+    "risk_class": "stationary-convenience",
+    "hashtags": "#Shorts #CarTips #OwnersManual #ManualMinute",
+    "description": "Some builds after approximately Nov 1, 2021 have charge-only front console USB ports. Use the glovebox USB for other functions on those vehicles; rear console ports charge only.",
+    "scenes": [
+      {
+        "eyebrow": "Before you buy a cable",
+        "headline": "Charges fine.|No data?",
+        "mode": "ports",
+        "voice": "Your Model Y charges your phone, but will not read data? The port could be the reason."
+      },
+      {
+        "eyebrow": "The hardware detail",
+        "headline": "Same console.|Different capability.",
+        "mode": "date",
+        "voice": "On some vehicles built after roughly November first, twenty twenty-one, the center-console ports only charge."
+      },
+      {
+        "eyebrow": "The useful distinction",
+        "headline": "Glovebox USB:|check here.",
+        "mode": "ports",
+        "voice": "For those cars, Tesla directs other USB functions to the glovebox port. Check the hardware installed in yours."
+      },
+      {
+        "eyebrow": "One more detail",
+        "headline": "Rear ports?|Charging only.",
+        "mode": "rear",
+        "voice": "Rear-console ports charge devices but do not communicate with the car. Check your own manual before replacing a cable."
+      }
+    ],
+    "visual": "usb",
+    "label": "TESLA MODEL Y  /  2020\u20132024  /  NORTH AMERICA"
+  },
+  {
+    "key": "f150-global-opening",
+    "vehicle": "Ford F-150",
+    "model_years": "2024",
+    "market": "United States",
+    "equipment": "Global Opening must be supported and enabled; confirm against the manual supplied with your truck",
+    "source_section": "Global Opening > Using Global Opening",
+    "source_url": "https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?ProcUid=G2532384&Uid=G2532446&buildtype=web&countryCode=USA&div=f&languageCode=en&moidRef=G2047079&userMarket=USA&vCode=1FTFX1L5XRKD35044&vFilteringEnabled=True&variantid=9537",
+    "manual_edition": "2024 F-150 online owner manual, US variant 9537",
+    "title": "2024 Ford F-150: Open Supported Windows With the Remote",
+    "source_reviewed_on": "2026-10-20",
+    "review_due": "2026-11-19",
+    "review_status": "source-reviewed-draft",
+    "risk_class": "stationary-convenience",
+    "hashtags": "#Shorts #CarTips #OwnersManual #ManualMinute",
+    "description": "Global Opening is equipment-dependent and must be enabled. Truck parked, windows clear. Tap/release unlock; within one second hold unlock again; release when windows start. Lock or unlock stops movement.",
+    "scenes": [
+      {
+        "eyebrow": "If equipped and enabled",
+        "headline": "Your remote.|Your windows.",
+        "mode": "hook",
+        "voice": "A twenty twenty-four F-one-fifty with Global Opening can open supported windows from the remote."
+      },
+      {
+        "eyebrow": "01 / Truck parked; windows clear",
+        "headline": "Tap unlock.|Release.",
+        "mode": "tap",
+        "voice": "With the truck parked and everyone clear, tap unlock once and release."
+      },
+      {
+        "eyebrow": "02 / Timing matters",
+        "headline": "Within one second,|hold unlock.",
+        "mode": "hold",
+        "voice": "Within one second, press and hold unlock again."
+      },
+      {
+        "eyebrow": "03 / Watch the windows",
+        "headline": "Windows move?|Let go.",
+        "mode": "open",
+        "voice": "Release as the windows start opening. Keep watching the windows."
+      },
+      {
+        "eyebrow": "04 / Stop the movement",
+        "headline": "Lock or unlock.|Either stops it.",
+        "mode": "stop",
+        "voice": "Press lock or unlock to stop. Confirm the feature is supported and enabled, and follow the manual supplied with your truck."
+      }
+    ],
+    "visual": "truck",
+    "label": "FORD F-150  /  2024  /  UNITED STATES"
+  },
+  {
+    "vehicle": "Tesla Model Y",
+    "model_years": "2020\u20132024",
+    "market": "North America",
+    "manual_edition": "2020\u20132024 Model Y online manual; 2026.32 software family",
+    "source_reviewed_on": "2026-10-20",
+    "review_due": "2026-11-19",
+    "review_status": "source-reviewed-draft",
+    "risk_class": "stationary-convenience",
+    "label": "TESLA MODEL Y  /  2020\u20132024  /  NORTH AMERICA",
+    "key": "model-y-wiper-service",
+    "title": "Model Y: The Setting Before You Touch the Wipers",
+    "visual": "wipers",
+    "source_url": "https://www.tesla.com/ownersmanual/2020_2024_modely/en_us/GUID-197C481B-B4D4-4973-9772-2AF488442CE1.html",
+    "source_section": "Replacing Wiper Blades",
+    "equipment": "Confirm against your vehicle\u2019s supplied manual and installed software",
+    "description": "An illustrated introduction to Wiper Service Mode, not a blade replacement tutorial. Park and switch wipers off first. Wiper arms do not lock upright; never overextend them. Follow the complete supplied manual for physical work.",
+    "scenes": [
+      {
+        "eyebrow": "Before reaching for the blades",
+        "headline": "Start with|the setting.",
+        "mode": "park",
+        "voice": "Before working around your Model Y wipers, know where the service setting is. Shift into Park and turn the wipers off."
+      },
+      {
+        "eyebrow": "01 / Open the menu",
+        "headline": "Controls.|Then Service.",
+        "mode": "menu",
+        "voice": "Open Controls, then Service."
+      },
+      {
+        "eyebrow": "02 / Move to service position",
+        "headline": "Wiper|Service Mode.",
+        "mode": "service",
+        "voice": "Turn on Wiper Service Mode to move the wipers to their service position."
+      },
+      {
+        "eyebrow": "03 / Know the limit",
+        "headline": "They do not|lock upright.",
+        "mode": "caution",
+        "voice": "The arms do not lock in a lifted position. Never lift them beyond their intended travel."
+      },
+      {
+        "eyebrow": "04 / Finish the task",
+        "headline": "Return the wipers|with the setting.",
+        "mode": "off",
+        "voice": "When finished, turn the mode off. For any blade work, follow the complete procedure in your supplied manual."
+      }
+    ]
+  },
+  {
+    "vehicle": "Tesla Model Y",
+    "model_years": "2020\u20132024",
+    "market": "North America",
+    "manual_edition": "2020\u20132024 Model Y online manual; 2026.32 software family",
+    "source_reviewed_on": "2026-10-20",
+    "review_due": "2026-11-19",
+    "review_status": "source-reviewed-draft",
+    "risk_class": "stationary-convenience",
+    "label": "TESLA MODEL Y  /  2020\u20132024  /  NORTH AMERICA",
+    "key": "model-y-glovebox-pin",
+    "title": "Model Y: Your Glovebox Can Have Its Own PIN",
+    "visual": "pin",
+    "source_url": "https://www.tesla.com/ownersmanual/2020_2024_modely/en_us/GUID-94B0E05E-F642-4C8E-8FED-E5EB45FA27DA.html",
+    "source_section": "Glovebox PIN",
+    "equipment": "Confirm against your vehicle\u2019s supplied manual and installed software",
+    "description": "Glovebox PIN is a separate four-digit protection from PIN to Drive. Configure it while parked using Controls > Safety > Glovebox PIN. Follow the touchscreen prompts; use the official account-reset process if forgotten.",
+    "scenes": [
+      {
+        "eyebrow": "A setting worth knowing",
+        "headline": "Your glovebox.|Its own PIN.",
+        "mode": "hook",
+        "voice": "Your Model Y glovebox can have its own four-digit PIN. It is separate from PIN to Drive."
+      },
+      {
+        "eyebrow": "01 / While parked",
+        "headline": "Controls.|Safety.",
+        "mode": "set",
+        "voice": "While parked, open Controls, then Safety, then Glovebox PIN."
+      },
+      {
+        "eyebrow": "02 / Follow the prompts",
+        "headline": "Set the PIN.|Keep it private.",
+        "mode": "prompt",
+        "voice": "Follow the touchscreen prompts. With the feature enabled, opening the glovebox requires that PIN."
+      },
+      {
+        "eyebrow": "03 / Separate settings",
+        "headline": "Glovebox PIN|is not PIN to Drive.",
+        "mode": "separate",
+        "voice": "This does not turn on PIN to Drive. The two settings protect different things."
+      },
+      {
+        "eyebrow": "04 / If you forget",
+        "headline": "Use the official|reset prompts.",
+        "mode": "reset",
+        "voice": "Forgot the glovebox PIN? Follow the touchscreen instructions to reset it with your Tesla account. The official source is below."
+      }
+    ]
+  },
+  {
+    "vehicle": "Tesla Model Y",
+    "model_years": "2020\u20132024",
+    "market": "North America",
+    "manual_edition": "2020\u20132024 Model Y online manual; 2026.32 software family",
+    "source_reviewed_on": "2026-10-20",
+    "review_due": "2026-11-19",
+    "review_status": "source-reviewed-draft",
+    "risk_class": "stationary-convenience",
+    "label": "TESLA MODEL Y  /  2020\u20132024  /  NORTH AMERICA",
+    "key": "model-y-walkaway-lock",
+    "title": "Model Y: Three Reasons Walk-Away Lock May Not Lock",
+    "visual": "walkaway",
+    "source_url": "https://www.tesla.com/ownersmanual/2020_2024_modely/en_us/GUID-7A32EC01-A17E-42CC-A15B-2E0A39FD07AB.html",
+    "source_section": "Walk-Away Door Lock",
+    "equipment": "Confirm against your vehicle\u2019s supplied manual and installed software",
+    "description": "Three examples of exceptions, not an exhaustive list: Exclude Home at Home; a recognized phone key or paired fob inside; a door or trunk not fully closed. Confirm Walk-Away Door Lock is enabled and always verify actual locking. Consult the supplied manual for additional exceptions.",
+    "scenes": [
+      {
+        "eyebrow": "Check before you leave",
+        "headline": "Walk-away lock|has exceptions.",
+        "mode": "hook",
+        "voice": "Your Model Y has walk-away locking, but it does not lock in every situation. Here are three things to check."
+      },
+      {
+        "eyebrow": "01 / Enable the feature",
+        "headline": "Controls \u2192 Locks.|Check the setting.",
+        "mode": "on",
+        "voice": "First, confirm Walk-Away Door Lock is enabled under Controls, then Locks."
+      },
+      {
+        "eyebrow": "02 / At your home location",
+        "headline": "Exclude Home?|Check that box.",
+        "mode": "home",
+        "voice": "At Home, the Exclude Home option can prevent automatic locking."
+      },
+      {
+        "eyebrow": "03 / Check the cabin",
+        "headline": "A key inside|can prevent locking.",
+        "mode": "key",
+        "voice": "A recognized phone key or paired fob left inside is another exception."
+      },
+      {
+        "eyebrow": "04 / Verify the result",
+        "headline": "Close everything.|Check the lock.",
+        "mode": "close",
+        "voice": "A door or trunk not fully closed can also prevent it. Other exceptions apply. Always verify the vehicle actually locked."
+      }
+    ]
+  }
+]
