@@ -59,7 +59,14 @@ def generate():
         draw.text((65, 88), 'WORKFLOW LAB', font=ImageFont.truetype(FONT, 35), fill='white')
         draw.text((54, 235), f'{i+1:02d} / {len(slides):02d}', font=ImageFont.truetype(FONT, 30), fill='#5adbbc')
         size = 43
-        lines = textwrap.wrap(text, width=24)
+        caption_font = ImageFont.truetype(FONT, size)
+        lines = []
+        for word in text.split():
+            candidate = (lines[-1] + ' ' + word) if lines else word
+            if lines and caption_font.getlength(candidate) <= 612:
+                lines[-1] = candidate
+            else:
+                lines.append(word)
         if len(lines) > 9:
             raise ValueError('Caption exceeds safe frame')
         y = max(330, 620 - len(lines)*30)
