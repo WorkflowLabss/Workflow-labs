@@ -1,12 +1,18 @@
 """Decode videos, validate audio/captions and build a deduplicated private-upload queue."""
 import argparse,hashlib,json,subprocess
 from pathlib import Path
+from build import digest
 from datetime import datetime,timezone,date
 root=Path(__file__).resolve().parent
 p=argparse.ArgumentParser();p.add_argument('--topic',default='all');a=p.parse_args()
 all_topics=json.loads((root/'storyboards.json').read_text())
 topics=[t for t in all_topics if a.topic=='all' or t['key'] in a.topic.split(',')]
+if len({t['key'] for t in all_topics})!=len(all_topics):raise ValueError('Duplicate topic keys')
+if a.topic!='all' and set(a.topic.split(','))-{t['key'] for t in all_topics}:raise ValueError('Unknown topic selection')
 if not topics:raise ValueError('No topics selected')
+# Never leave a previous success queue behind when this check fails.
+(root/'ready-queue.json').unlink(missing_ok=True)
+(root/'quality-results.json').unlink(missing_ok=True)
 results=[];queue=[];seen=set()
 for topic in topics:
     folder=root/'output'/topic['key'];video=folder/(topic['key']+'.mp4')
@@ -28,7 +34,9 @@ for topic in topics:
     assert -35<float(mean.split()[0])<-8 and float(peak.split()[0])<0
     sha=hashlib.sha256(video.read_bytes()).hexdigest()
     meta=json.loads((folder/'metadata.json').read_text())
-    assert meta.get('video_sha256',sha)==sha,'Video changed after render metadata was written'
+    assert meta.get('build_digest')==digest(topic),'Render is stale; rebuild after source or renderer changes'
+    assert (folder/'captions.srt').is_file() and (folder/'captions.srt').stat().st_size>0,'Missing captions'
+    assert meta.get('video_sha256')==sha,'Video changed after render metadata was written'
     assert meta['source_url']==topic['source_url'] and len(meta['title'])<=100
     results.append(dict(topic=topic['key'],duration=duration,resolution='1080x1920',fps=30,words=len(words),mean_volume=mean,peak_volume=peak,status='passed',sha256=sha))
     queue.append(dict(topic=topic['key'],title=meta['title'],video=str(video.relative_to(root)),metadata=str((folder/'metadata.json').relative_to(root)),captions=str((folder/'captions.srt').relative_to(root)),script_id=script_id,video_sha256=sha,status='rendered_verified',publication_status='not_uploaded',privacy='private',source_review_due=topic['review_due']))
@@ -37,3 +45,4 @@ stamp=datetime.now(timezone.utc).isoformat()
 queue_path=root/'ready-queue.json';temporary=queue_path.with_suffix('.tmp')
 temporary.write_text(json.dumps({'generated_at':stamp,'publishing_enabled':False,'entries':queue},indent=2));temporary.replace(queue_path)
 print(json.dumps(results,indent=2))
+

@@ -154,12 +154,12 @@ async def speech(text,out):
   return await speech_request(text,out)
 
 async def speech_request(text,out):
- import edge_tts,edge_tts.communicate as comm
- # Honor the runtime's trusted CA bundle; TLS verification stays enabled.
- if os.environ.get('SSL_CERT_FILE'): comm._SSL_CTX=ssl.create_default_context()
  key=hashlib.sha256((text+'Andrew+4').encode()).hexdigest()[:16]
  audio=out/(key+'.mp3'); timing=out/(key+'.jsonl')
  if not valid_speech(audio,timing):
+  import edge_tts,edge_tts.communicate as comm
+  # Honor the runtime's trusted CA bundle; TLS verification stays enabled.
+  if os.environ.get('SSL_CERT_FILE'): comm._SSL_CTX=ssl.create_default_context()
   for attempt in range(4):
    try:
     t=edge_tts.Communicate(text,voice='en-US-AndrewMultilingualNeural',rate='+4%',boundary='WordBoundary',receive_timeout=20)
@@ -242,6 +242,8 @@ async def main():
  p=argparse.ArgumentParser();p.add_argument('--topic',default='all');p.add_argument('--output',default=str(ROOT/'output'));p.add_argument('--force',action='store_true');a=p.parse_args()
  topics=json.loads((ROOT/'storyboards.json').read_text()); selected=[t for t in topics if a.topic=='all' or t['key'] in a.topic.split(',')]
  if len({t['key'] for t in topics})!=len(topics):raise ValueError('Duplicate topic keys')
+ requested=set(a.topic.split(','))
+ if a.topic!='all' and requested-{t['key'] for t in topics}:raise ValueError('Unknown topic selection')
  if not selected:raise ValueError('Unknown topic')
  for t in selected:
   if not date.fromisoformat(t['source_reviewed_on'])<=date.today()<=date.fromisoformat(t['review_due']):
@@ -251,7 +253,8 @@ async def main():
   out=Path(a.output)/t['key'];meta_path=out/'metadata.json';video=out/(t['key']+'.mp4')
   if not a.force and meta_path.exists() and video.exists():
    m=json.loads(meta_path.read_text())
-   if m.get('build_digest')==digest(t) and m.get('video_sha256')==filehash(video):
+   if m.get('build_digest')==digest(t) and m.get('video_sha256')==filehash(video) and all((out/name).is_file() for name in ['words.json','captions.srt','timeline.json','script.txt']):
     print(json.dumps({'topic':t['key'],'status':'reused validated render'}),flush=True);continue
   await build(t,Path(a.output))
 if __name__=='__main__':asyncio.run(main())
+

@@ -32,6 +32,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements.txt
       - name: Install free offline tools
         run: |
           sudo apt-get update -qq
@@ -75,3 +77,4 @@ jobs:
           git add publish_state.json
           git commit -m 'Record private YouTube upload receipt [skip ci]'
           git push origin HEAD:main
+
