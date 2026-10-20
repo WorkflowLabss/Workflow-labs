@@ -1,0 +1,53 @@
+name: Vehicle Manual Shorts - Drafts
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: Source-reviewed draft to render
+        type: choice
+        options:
+          - all
+          - model-y-usb
+          - model-y-screen-clean
+          - f150-global-opening
+        default: all
+  schedule:
+    - cron: '47 15 * * 2,5'
+permissions:
+  contents: read
+concurrency:
+  group: vehicle-manual-drafts
+  cancel-in-progress: false
+jobs:
+  drafts:
+    # Recurring draft builds are prepared but off until editorial cadence is approved.
+    if: github.event_name == 'workflow_dispatch' || vars.VEHICLE_DRAFT_SCHEDULE_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install free offline tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg espeak-ng
+          python -m pip install -r requirements.txt
+      - name: Verify source and model-specific metadata
+        run: python vehicle_manuals.py --validate-only
+      - name: Render independent narrated drafts
+        env:
+          TOPIC: ${{ inputs.topic || 'all' }}
+        run: python vehicle_manuals.py --topic "$TOPIC"
+      - name: Save videos, scripts, metadata, and source review
+        uses: actions/upload-artifact@v4
+        with:
+          name: vehicle-manual-drafts-${{ github.run_id }}
+          path: |
+            output/vehicle-manuals/**/workflow_lab_short.mp4
+            output/vehicle-manuals/**/metadata.json
+            output/vehicle-manuals/**/script.txt
+            output/vehicle-manuals/**/source_review.json
+          if-no-files-found: error
+          retention-days: 3
