@@ -1,43 +1,77 @@
-
 name: Build Video Draft
 
 on:
   workflow_dispatch:
+    inputs:
+      upload_private:
+        description: 'Upload one verified video privately (requires OAuth secret)'
+        type: boolean
+        default: false
   schedule:
-    - cron: '0 14 * * 1'
+    - cron: '17 14 * * 1,4'
 
 permissions:
   contents: read
 
+concurrency:
+  group: workflow-lab-publisher
+  cancel-in-progress: false
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
-
+    env:
+      # Scheduled uploads stay disabled until private end-to-end verification.
+      ALLOW_SCHEDULED_UPLOAD: 'false'
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
-
-      - name: Install dependencies
+      - name: Install free offline tools
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      
-      - name: Install FFmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
-
-      - name: Generate video
-        run: python generate.py
-
-      - name: Upload video artifact
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg espeak-ng
+          python -m pip install -r requirements.txt
+      - name: Generate and validate narrated Short
+        run: python generate.py generate
+      - name: Save review files
         uses: actions/upload-artifact@v4
         with:
-          name: workflow-lab-video
-          path: output/
+          name: workflow-lab-video-${{ github.run_id }}
+          path: |
+            output/workflow_lab_short.mp4
+            output/metadata.json
+            output/script.txt
+          retention-days: 3
           if-no-files-found: error
-  
+      - name: Verify credentials are configured
+        if: inputs.upload_private || (github.event_name == 'schedule' && env.ALLOW_SCHEDULED_UPLOAD == 'true')
+        env:
+          YOUTUBE_CREDENTIALS: ${{ secrets.YOUTUBE_CREDENTIALS }}
+        run: |
+          python -c 'import os,json; c=json.loads(os.environ["YOUTUBE_CREDENTIALS"]); assert all(c.get(k) for k in ("client_id","client_secret","refresh_token"))'
+      - name: Persist duplicate-prevention reservation before upload
+        if: inputs.upload_private || (github.event_name == 'schedule' && env.ALLOW_SCHEDULED_UPLOAD == 'true')
+        run: |
+          python generate.py reserve
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add publish_state.json
+          git commit -m 'Reserve original Short before private upload [skip ci]'
+          git push origin HEAD:main
+      - name: Upload privately without automatic retry
+        if: inputs.upload_private || (github.event_name == 'schedule' && env.ALLOW_SCHEDULED_UPLOAD == 'true')
+        env:
+          YOUTUBE_CREDENTIALS: ${{ secrets.YOUTUBE_CREDENTIALS }}
+        run: python generate.py upload
+      - name: Persist upload receipt
+        if: inputs.upload_private || (github.event_name == 'schedule' && env.ALLOW_SCHEDULED_UPLOAD == 'true')
+        run: |
+          git add publish_state.json
+          git commit -m 'Record private YouTube upload receipt [skip ci]'
+          git push origin HEAD:main
