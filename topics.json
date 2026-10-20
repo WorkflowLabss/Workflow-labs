@@ -1,17 +1,98 @@
 [
   {
-    "title": "3 Free AI Automations for Small Businesses | Workflow Lab",
-    "description": "Three practical workflows to help small businesses save time. Start with human-reviewed drafts, then automate only after testing. Educational content; review customer data privacy before connecting tools.",
-    "hashtags": "#SmallBusiness #Automation #AItools #WorkflowLab",
+    "title": "Turn repeated questions into better reply drafts | Workflow Lab",
+    "description": "An original Workflow Lab walkthrough. Test with fictional data and review results before connecting live customer systems. Narration uses a local synthetic voice.",
+    "hashtags": "#Shorts #Automation #Productivity #SmallBusiness #WorkflowLab",
     "slides": [
-      "3 FREE AI WORKFLOWS FOR SMALL BUSINESSES",
-      "1. DRAFT REPLIES TO COMMON CUSTOMER QUESTIONS",
-      "REVIEW THE ANSWER BEFORE SENDING IT",
-      "2. PREPARE FOLLOW-UPS FOR UNSENT ESTIMATES",
-      "ONLY SEND TO CUSTOMERS WHO EXPECT CONTACT",
-      "3. ORGANIZE NEW LEADS IN A TRACKING SHEET",
-      "START SMALL. TEST. THEN AUTOMATE.",
-      "FOLLOW WORKFLOW LAB FOR PRACTICAL IDEAS"
+      "Answering the same customer question again? Build a reply draft workflow before automating the send button.",
+      "Create a short reference document with your service area, opening hours, and approved answers. Leave out customer information.",
+      "Ask your AI tool: Draft a reply using only this reference. If a fact is missing, ask me instead of guessing.",
+      "Test it with a question about pricing that your reference does not answer. A useful draft should admit it needs details.",
+      "Check every draft before sending. When customers keep asking the same thing, improve the reference rather than adding another prompt."
+    ]
+  },
+  {
+    "title": "A simple estimate follow-up system | Workflow Lab",
+    "description": "An original Workflow Lab walkthrough. Test with fictional data and review results before connecting live customer systems. Narration uses a local synthetic voice.",
+    "hashtags": "#Shorts #Automation #Productivity #SmallBusiness #WorkflowLab",
+    "slides": [
+      "An estimate follow-up does not need a complicated sales system. Start with one spreadsheet and a useful next step.",
+      "Use columns for customer, estimate date, status, last contact, and next follow-up date. Keep personal details in your approved system.",
+      "Filter for open estimates with a next follow-up date before today. Exclude declined work and anyone who opted out.",
+      "Draft a short message: Do you have questions about the estimate? I can explain the scope or help with timing.",
+      "Review the recipient and message, send through your normal channel, and update the last contact date. Track replies, not just messages sent."
+    ]
+  },
+  {
+    "title": "Make AI summarize tasks without inventing deadlines | Workflow Lab",
+    "description": "An original Workflow Lab walkthrough. Test with fictional data and review results before connecting live customer systems. Narration uses a local synthetic voice.",
+    "hashtags": "#Shorts #Automation #Productivity #SmallBusiness #WorkflowLab",
+    "slides": [
+      "An AI summary can sound organized while quietly inventing a deadline. Use a stricter task extraction prompt.",
+      "With a non-confidential sample, ask: Extract each action, its owner, and its deadline. Quote the sentence that supports each field.",
+      "Add this rule: If an owner or date is missing, write not specified. Do not infer it from context.",
+      "Compare the extracted list with the original notes. A phrase like soon is not a calendar date.",
+      "Only move verified tasks into your tracker. The time saver is finding commitments faster, while you still decide what gets assigned."
+    ]
+  },
+  {
+    "title": "Check a spreadsheet before trusting the dashboard | Workflow Lab",
+    "description": "An original Workflow Lab walkthrough. Test with fictional data and review results before connecting live customer systems. Narration uses a local synthetic voice.",
+    "hashtags": "#Shorts #Automation #Productivity #SmallBusiness #WorkflowLab",
+    "slides": [
+      "Your dashboard can be wrong even when every formula works. Check the source rows before building another chart.",
+      "Start with three checks: Is each record unique? Are required fields filled? Are dates stored consistently?",
+      "Keep a stable record identifier. Two customers with the same name are not automatically duplicate records.",
+      "Compare your row count and total amount with the original export. Investigate any difference before deleting or changing rows.",
+      "Keep the raw export unchanged and clean a copy. A small validation tab makes next month easier to check."
+    ]
+  },
+  {
+    "title": "Build a useful AI prompt with a test case | Workflow Lab",
+    "description": "An original Workflow Lab walkthrough. Test with fictional data and review results before connecting live customer systems. Narration uses a local synthetic voice.",
+    "hashtags": "#Shorts #Automation #Productivity #SmallBusiness #WorkflowLab",
+    "slides": [
+      "A reusable AI prompt needs a test case, not just more instructions. Try this with a service description.",
+      "Write the task: Rewrite this description for a customer. Then specify the audience, tone, and maximum length.",
+      "Add boundaries: Use only facts in the input. Keep prices unchanged. Do not invent guarantees or qualifications.",
+      "Now test it with a description that has no price. The output should not create one just to sound complete.",
+      "Save the prompt alongside that test input and an acceptable output. Recheck both when you change the instructions."
+    ]
+  },
+  {
+    "title": "Name your files so automation can find them | Workflow Lab",
+    "description": "An original Workflow Lab walkthrough. Test with fictional data and review results before connecting live customer systems. Narration uses a local synthetic voice.",
+    "hashtags": "#Shorts #Automation #Productivity #SmallBusiness #WorkflowLab",
+    "slides": [
+      "Before connecting another app, fix the file names your workflow relies on. Predictable inputs make simpler automations.",
+      "Pick a pattern such as year, month, day, project, and document type. Use a consistent date format like four-digit year first.",
+      "Keep a stable project identifier when names can change. Avoid putting sensitive customer information in a shared filename.",
+      "Test the pattern on five real examples, including a revised document. Decide how you will label revisions before moving files.",
+      "Try the rule in a test folder first. Keep a record of old and new names so a mistake is easy to undo."
+    ]
+  },
+  {
+    "title": "Use a dry run before an automation sends anything | Workflow Lab",
+    "description": "An original Workflow Lab walkthrough. Test with fictional data and review results before connecting live customer systems. Narration uses a local synthetic voice.",
+    "hashtags": "#Shorts #Automation #Productivity #SmallBusiness #WorkflowLab",
+    "slides": [
+      "The most useful automation setting is often a dry run. It shows what would happen before anything is sent.",
+      "For a follow-up workflow, create a preview with the intended recipient, draft message, and reason the row was selected.",
+      "Use fictional test records for an open estimate, a declined estimate, and a customer who opted out.",
+      "Check that only the open estimate appears in the preview. Also test a missing email address and a repeated record.",
+      "Keep sending disabled until those cases behave correctly. After launch, retain a simple activity log and an easy off switch."
+    ]
+  },
+  {
+    "title": "Make a small business checklist that stays useful | Workflow Lab",
+    "description": "An original Workflow Lab walkthrough. Test with fictional data and review results before connecting live customer systems. Narration uses a local synthetic voice.",
+    "hashtags": "#Shorts #Automation #Productivity #SmallBusiness #WorkflowLab",
+    "slides": [
+      "A checklist should prevent a missed step, not become another document nobody reads. Start with one repeated task.",
+      "Write the trigger at the top. For example: Use this checklist when a new service request arrives.",
+      "List observable actions: Confirm the address, record the requested work, and tell the customer when to expect a response.",
+      "Put the exception beside the step it affects. If the address is outside your service area, route it for review.",
+      "Test the checklist on your next three requests. Remove vague steps, add missing decisions, and assign someone to keep it current."
     ]
   }
 ]
