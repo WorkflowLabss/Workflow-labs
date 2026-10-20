@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT / 'output'
 STATE = ROOT / 'publish_state.json'
 FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+BRAND = 'WORKFLOW LAB'
+TAGLINE = 'BETTER TOOLS. LESS WORK.'
 
 def run(args):
     subprocess.run(args, check=True, timeout=300, stdout=subprocess.DEVNULL)
@@ -56,7 +58,7 @@ def generate():
         im = Image.new('RGB', (720, 1280), '#0d1a2c')
         draw = ImageDraw.Draw(im)
         draw.rounded_rectangle((40, 65, 680, 145), radius=20, fill='#1e5862')
-        draw.text((65, 88), 'WORKFLOW LAB', font=ImageFont.truetype(FONT, 35), fill='white')
+        draw.text((65, 88), BRAND, font=ImageFont.truetype(FONT, 35), fill='white')
         draw.text((54, 235), f'{i+1:02d} / {len(slides):02d}', font=ImageFont.truetype(FONT, 30), fill='#5adbbc')
         size = 43
         caption_font = ImageFont.truetype(FONT, size)
@@ -74,7 +76,7 @@ def generate():
             draw.text((54, y), line, font=ImageFont.truetype(FONT, size), fill='white')
             y += 62
         draw.rectangle((54, 1040, 54 + int(612*(i+1)/len(slides)), 1052), fill='#5adbbc')
-        draw.text((54, 1090), 'BETTER TOOLS. LESS WORK.', font=ImageFont.truetype(FONT, 25), fill='white')
+        draw.text((54, 1090), TAGLINE, font=ImageFont.truetype(FONT, 25), fill='white')
         png, clip = OUT/f'slide_{i:02d}.png', OUT/f'clip_{i:02d}.mp4'
         im.save(png)
         run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', str(png), '-i', str(wav), '-t', str(duration), '-af', 'apad', '-r', '24', '-c:v', 'libx264', '-preset', 'veryfast', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-ar', '48000', '-ac', '1', str(clip)])
